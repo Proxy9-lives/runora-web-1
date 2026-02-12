@@ -46,7 +46,7 @@
   font-size:0.95rem; font-weight:600; letter-spacing:0.1em;
 }
 .logo-img {
-  width:34px; height:34px; object-fit:contain;
+  width:68px; height:68px; object-fit:contain;
   background:transparent;
   filter: drop-shadow(0 0 8px rgba(192,132,252,0.6));
 }
