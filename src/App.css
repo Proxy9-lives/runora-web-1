@@ -1,6 +1,6 @@
 /* ===== VARIABLES ===== */
 :root {
-  --bg: #0d0d0d;
+  --bg: #020617;
   --white: #fff;
   --pink: #ff6b9d;
   --lavender: #c084fc;
@@ -409,7 +409,7 @@
   cursor: pointer;
   transition: all 0.25s ease;
   backdrop-filter: blur(6px);
-  align-self: flex-start;
+  align-self: center;
 }
 
 .holo-explore-btn:hover {

@@ -108,7 +108,7 @@ function App() {
         <ProblemSection id="problem" />
         <SolutionSection id="solution" onNavigate={scrollTo} onServicesOpen={() => { setContactOpen(false); setServicesOpen(true); }} />
         <ImpactSection id="impact" />
-        <ProcessSection id="process" />
+        <ProcessSection id="process" onContactOpen={() => { setServicesOpen(false); setContactOpen(true); }} />
         <Footer />
       </div>
     </div>
