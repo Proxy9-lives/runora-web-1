@@ -82,7 +82,6 @@ const ServicesPage = ({ onClose, onAudit, onNavigate, onContactOpen }) => {
         <div className="services-page-header">
           <span className="services-overlay-tag">WHAT WE AUTOMATE</span>
           <h1 className="services-page-title">Our Services</h1>
-          <p className="services-page-sub">Click any service to book a free audit</p>
         </div>
         <div className="services-page-grid">
           {services.map(s => <HoloSvcCard key={s.id} s={s} onAudit={onAudit} />)}

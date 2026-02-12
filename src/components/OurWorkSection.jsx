@@ -42,7 +42,7 @@ const HoloStep = ({ number, title, desc }) => {
   );
 };
 
-const ProcessSection = ({ id }) => (
+const ProcessSection = ({ id, onContactOpen }) => (
   <div id={id} className="section our-work">
     <div className="work-content">
       <h2 className="work-title">HOW ENGAGEMENT WORKS</h2>
@@ -56,7 +56,7 @@ const ProcessSection = ({ id }) => (
       {/* CTA */}
       <div className="process-cta">
         <h3>15-Minute Automation Audit</h3>
-        <button className="cta-button" onClick={() => window.open('mailto:start@runora.ai')}>
+        <button className="cta-button" onClick={onContactOpen}>
           GET FREE AUDIT
         </button>
         <p className="cta-note">No obligation.</p>
