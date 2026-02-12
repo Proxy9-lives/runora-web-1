@@ -58,7 +58,10 @@ const HoloSvcCard = ({ s, onAudit }) => {
         <ul className="svc-list">
           {s.items.map((item, i) => <li key={i}>{item}</li>)}
         </ul>
-        <button className="cta-button svc-cta" onClick={onAudit}>GET FREE AUDIT</button>
+        <button className="cta-button svc-cta" onClick={onAudit}>
+          <img src="/runora_mascot.png" alt="" style={{ width: '20px', height: '20px', objectFit: 'contain', background: 'transparent', verticalAlign: 'middle', marginRight: '8px' }} />
+          GET FREE AUDIT
+        </button>
       </div>
     </div>
   );

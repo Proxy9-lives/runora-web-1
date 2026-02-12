@@ -16,7 +16,7 @@ const Header = ({ onNavigate, currentSection, onServicesOpen, onContactOpen, isS
     <>
       <header className="header">
         <a href="#home" className="logo" onClick={(e) => { e.preventDefault(); go('home'); }}>
-          <img src="/runora_logo.png" alt="Runora" className="logo-img" />
+          <img src="/runora_mascot.png" alt="Runora" className="logo-img" style={{ background: 'transparent' }} />
           <span>RUNORA</span>
         </a>
         <nav className="desktop-nav">

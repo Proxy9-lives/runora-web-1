@@ -69,7 +69,8 @@ const ContactPage = ({ onClose, onServicesOpen, onNavigate }) => {
 
               <p className="contact-label">For now, the fastest way to reach us is by email:</p>
               <a className="contact-email-link" href="mailto:start@runora.ai">
-                📩 start@runora.ai
+                <img src="/runora_mascot.png" alt="" style={{ width: '24px', height: '24px', objectFit: 'contain', background: 'transparent', verticalAlign: 'middle', marginRight: '8px' }} />
+                start@runora.ai
               </a>
 
               <div className="contact-include">
