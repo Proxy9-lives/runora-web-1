@@ -4,28 +4,33 @@ import BeamsBackground from './BeamsBackground';
 
 const services = [
   { id:'customer', img:'/cube1.png', badge:'HIGHEST ROI', title:'Customer Support & Lead Response',
-    tagline:'Directly impacts revenue + conversion rate',
-    items:['Website, WhatsApp, Instagram, Facebook DMs','Email support inbox automation','AI voice receptionist (inbound & outbound)','Instant replies 24/7','Lead qualification & appointment booking','CRM logging & escalation to humans','Call-forwarding fallback if AI is down'] },
-  { id:'hr', img:'/cube2.png', title:'HR & Hiring Automation',
-    tagline:'Scale hiring without scaling HR workload',
-    items:['Resume screening & ranking','Candidate scoring & shortlisting','Interview scheduling automation','Onboarding workflow automation','HR Q&A assistant for employees'] },
+    tagline:'Never miss a lead. Never lose a booking.',
+    imgLabel:'📸 Add image: AI chatbot / WhatsApp dashboard / phone with notifications',
+    items:['WhatsApp, Instagram & Facebook DM automation','Website chat & email inbox handling','AI voice receptionist — inbound & outbound','Instant replies 24/7, even during Ramadan hours','Lead qualification & appointment booking','CRM auto-logging & human escalation','Fallback to your team for complex queries'] },
   { id:'marketing', img:'/cube3.png', title:'Marketing Automation',
-    tagline:'Consistency without daily effort',
-    items:['Content idea research (competitors + trends)','Post, caption & hashtag generation','Cross-platform repurposing','Scheduling with human approval step','AI DM/comment responders'] },
+    tagline:'Stay visible without lifting a finger.',
+    imgLabel:'📸 Add image: Social media content / scheduling dashboard / analytics',
+    items:['Content ideas pulled from competitor & trend data','Post, caption & hashtag generation','Cross-platform repurposing (Instagram, LinkedIn, TikTok)','Scheduling with your approval before anything posts','AI DM and comment response flows'] },
   { id:'sales', img:'/cube4.png', title:'Sales Automation',
-    tagline:'More leads, less chasing',
-    items:['Lead scraping (LinkedIn, Google Maps)','Lead enrichment & scoring','CRM pipeline updates','Proposal generation from meeting notes','Automated follow-up sequencing'] },
+    tagline:'More pipeline. Less manual chasing.',
+    imgLabel:'📸 Add image: CRM pipeline / lead funnel / sales dashboard',
+    items:['Lead scraping from LinkedIn, Google Maps & ads','Lead enrichment, scoring & prioritisation','CRM pipeline auto-updates','Proposal generation from meeting notes','Automated follow-up sequences that don\'t feel robotic'] },
   { id:'operations', img:'/cube5.png', title:'Operations Automation',
-    tagline:'Remove internal bottlenecks',
-    items:['Data extraction (invoices, orders, documents)','WhatsApp logging to CRM and Sheets','Cross-system sync (CRM, dashboards, accounting)','Automated weekly & monthly reports'] },
+    tagline:'Remove the bottlenecks slowing your team down.',
+    imgLabel:'📸 Add image: Document processing / workflow diagram / dashboard',
+    items:['Invoice & document data extraction','WhatsApp conversations logged to CRM & Sheets','Cross-system sync — CRM, accounting, dashboards','Automated weekly & monthly reports to your inbox'] },
+  { id:'hr', img:'/cube2.png', title:'HR & Hiring Automation',
+    tagline:'Hire faster. Onboard smoother.',
+    imgLabel:'📸 Add image: CV screening / hiring pipeline / onboarding flow',
+    items:['Resume screening & AI-powered shortlisting','Interview scheduling without back-and-forth','Onboarding workflow automation','HR Q&A assistant for your team','Offer letter & contract generation'] },
   { id:'finance', img:'/cube6.png', title:'Finance Automation',
-    tagline:'Accuracy, speed, compliance',
-    items:['Accounts payable / receivable automation','Invoice OCR + duplicate detection','Payment reminders & follow-ups','Expense report generation','Financial summaries for founders'] },
+    tagline:'Accuracy, speed, compliance — without an accountant on call.',
+    imgLabel:'📸 Add image: Invoice processing / finance dashboard / accounting',
+    items:['Accounts payable & receivable automation','Invoice OCR + duplicate detection','Payment reminders & follow-ups','Expense report generation','Financial summaries delivered to founders weekly'] },
 ];
 
 const HoloSvcCard = ({ s, onAudit }) => {
   const cardRef = useRef(null);
-
   const onMouseMove = (e) => {
     if (!cardRef.current) return;
     const r = cardRef.current.getBoundingClientRect();
@@ -42,12 +47,19 @@ const HoloSvcCard = ({ s, onAudit }) => {
     cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
     ['--x','--y','--bg-x','--bg-y'].forEach(v => cardRef.current.style.setProperty(v, '50%'));
   };
-
   return (
     <div ref={cardRef} className={`svc-card ${s.badge ? 'svc-featured' : ''}`}
       onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
       <div className="holo-shimmer" />
       <div className="holo-glow" />
+      {/* IMAGE PLACEHOLDER — replace src with your image per service */}
+      <div className="svc-img-placeholder">
+        <img src={s.placeholderImg || ''} alt={s.title}
+          className="svc-card-img"
+          onError={(e) => { e.target.style.display='none'; e.target.parentNode.classList.add('svc-img-empty'); }}
+        />
+        <span className="svc-img-label">{s.imgLabel}</span>
+      </div>
       <div className="svc-card-inner">
         <div className="svc-card-top">
           <img src={s.img} alt="" className="svc-cube-img" />
@@ -58,10 +70,7 @@ const HoloSvcCard = ({ s, onAudit }) => {
         <ul className="svc-list">
           {s.items.map((item, i) => <li key={i}>{item}</li>)}
         </ul>
-        <button className="cta-button svc-cta" onClick={onAudit}>
-          <img src="/runora_mascot.png" alt="" style={{ width: '40px', height: '40px', objectFit: 'contain', background: 'transparent', verticalAlign: 'middle', marginRight: '8px' }} />
-          GET FREE AUDIT
-        </button>
+        <button className="cta-button svc-cta" onClick={onAudit}>GET FREE AUDIT</button>
       </div>
     </div>
   );
@@ -69,7 +78,6 @@ const HoloSvcCard = ({ s, onAudit }) => {
 
 const ServicesPage = ({ onClose, onAudit, onNavigate, onContactOpen }) => {
   const handleNav = (id) => { onClose(); setTimeout(() => onNavigate?.(id), 50); };
-
   return (
     <div className="services-page">
       <BeamsBackground />
@@ -82,12 +90,23 @@ const ServicesPage = ({ onClose, onAudit, onNavigate, onContactOpen }) => {
       />
       <div className="services-page-body">
         <button className="services-back-btn" onClick={onClose}>← Back</button>
+
+        {/* Services hero */}
         <div className="services-page-header">
           <span className="services-overlay-tag">WHAT WE AUTOMATE</span>
-          <h1 className="services-page-title">Our Services</h1>
+          <h1 className="services-page-title">Everything running on autopilot.</h1>
+          <p className="services-hero-sub">Six automation categories. Hundreds of individual workflows. All built specifically for your business.</p>
         </div>
+
         <div className="services-page-grid">
           {services.map(s => <HoloSvcCard key={s.id} s={s} onAudit={onAudit} />)}
+        </div>
+
+        {/* Bottom CTA strip */}
+        <div className="services-bottom-cta">
+          <p>Not sure which service fits your business?</p>
+          <button className="cta-button" onClick={onAudit}>BOOK A FREE 15-MIN AUDIT CALL</button>
+          <span className="cta-note">We'll tell you exactly what to automate first for maximum ROI.</span>
         </div>
       </div>
     </div>

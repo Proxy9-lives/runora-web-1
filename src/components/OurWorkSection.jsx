@@ -45,35 +45,34 @@ const HoloStep = ({ number, title, desc }) => {
 const ProcessSection = ({ id, onContactOpen }) => (
   <div id={id} className="section our-work">
     <div className="work-content">
-      <h2 className="work-title">HOW ENGAGEMENT WORKS</h2>
+      <div className="section-label">HOW IT WORKS</div>
+      <h2 className="work-title">FROM AUDIT TO LIVE</h2>
       <div className="process-steps">
-        <HoloStep number="01" title="Workflow Audit" desc="15–30 min session to understand your ops" />
-        <HoloStep number="02" title="Identify Top ROI" desc="We pinpoint fastest-value automation" />
-        <HoloStep number="03" title="Build & Deploy" desc="Fixed scope, clear deliverables & cost" />
-        <HoloStep number="04" title="Maintain & Optimise" desc="Optional ongoing support as you grow" />
+        <HoloStep number="01" title="Free Audit Call" desc="15–30 min. We map your biggest bottlenecks and identify the highest ROI automation for your business." />
+        <HoloStep number="02" title="Custom Build Plan" desc="We scope exactly what gets built, what it costs, and what results to expect. No surprises." />
+        <HoloStep number="03" title="Build & Deploy" desc="We build, test, and launch your automation. You approve before anything goes live." />
+        <HoloStep number="04" title="Maintain & Optimise" desc="Optional ongoing support as your business grows. We monitor and improve over time." />
       </div>
 
-      {/* CTA */}
       <div className="process-cta">
-        <h3>15-Minute Automation Audit</h3>
+        <h3>Ready to see what we'd automate for you?</h3>
         <button className="cta-button" onClick={onContactOpen}>
-          GET FREE AUDIT
+          BOOK FREE AUDIT
         </button>
-        <p className="cta-note">No obligation.</p>
+        <span className="cta-note">No obligation. No technical knowledge required.</span>
       </div>
 
-      {/* Trust block with bigger gap */}
       <div className="trust-block">
-        <h3 className="trust-block-title">Why Runora Is Safe to Run</h3>
+        <h3 className="trust-block-title">Built for businesses that can't afford downtime</h3>
         <div className="trust-row">
-          <div className="trust-item"><span className="trust-icon">🔐</span><p>SLA-defined response times</p></div>
-          <div className="trust-item"><span className="trust-icon">📊</span><p>Monitoring & escalation</p></div>
+          <div className="trust-item"><span className="trust-icon">🔐</span><p>NDAs & data security included</p></div>
           <div className="trust-item"><span className="trust-icon">👤</span><p>Human fallback for critical flows</p></div>
-          <div className="trust-item"><span className="trust-icon">🛡️</span><p>NDAs + security compliance</p></div>
-          <div className="trust-item"><span className="trust-icon">📝</span><p>Audit logs where required</p></div>
+          <div className="trust-item"><span className="trust-icon">📊</span><p>Live monitoring & alerts</p></div>
+          <div className="trust-item"><span className="trust-icon">🛡️</span><p>SLA-defined response times</p></div>
+          <div className="trust-item"><span className="trust-icon">📝</span><p>Full audit logs available</p></div>
         </div>
       </div>
-      <p className="trust-tagline-outside">AI that works with accountability, not blindly.</p>
+      <p className="trust-tagline-outside">AI that works with accountability — not blindly.</p>
     </div>
   </div>
 );

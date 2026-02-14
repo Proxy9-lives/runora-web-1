@@ -5,14 +5,17 @@ import HomeSection from './components/HomeSection';
 import ProblemSection from './components/WhoWeAreSection';
 import SolutionSection from './components/HowWeDoItSection';
 import ImpactSection from './components/ImpactSection';
+import IndustriesSection from './components/IndustriesSection';
 import ProcessSection from './components/OurWorkSection';
+
+import FAQSection from './components/FAQSection';
 import ServicesPage from './components/ServicesPage';
 import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
 import ScrollIndicator from './components/ScrollIndicator';
 import BackgroundCanvas from './components/BackgroundCanvas';
 
-const SECTIONS = ['home','problem','solution','impact','process'];
+const SECTIONS = ['home','problem','solution','impact','industries','process','faq'];
 
 function App() {
   const [current, setCurrent] = useState('home');
@@ -68,6 +71,8 @@ function App() {
       containerRef.current.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
   };
 
+  const openContact = () => { setServicesOpen(false); setContactOpen(true); };
+
   return (
     <div className="App">
       <BackgroundCanvas />
@@ -75,7 +80,7 @@ function App() {
         currentSection={current}
         onNavigate={scrollTo}
         onServicesOpen={() => { setContactOpen(false); setServicesOpen(true); }}
-        onContactOpen={() => { setServicesOpen(false); setContactOpen(true); }}
+        onContactOpen={openContact}
       />
       <ScrollIndicator />
 
@@ -84,7 +89,7 @@ function App() {
           onClose={() => setServicesOpen(false)}
           onAudit={() => { setServicesOpen(false); setContactOpen(true); }}
           onNavigate={(id) => { setServicesOpen(false); setTimeout(() => scrollTo(id), 50); }}
-          onContactOpen={() => { setServicesOpen(false); setContactOpen(true); }}
+          onContactOpen={openContact}
         />
       )}
 
@@ -104,11 +109,13 @@ function App() {
         onMouseUp={onMouseUp}
         onMouseLeave={onMouseUp}
       >
-        <HomeSection id="home" onNavigate={scrollTo} />
+        <HomeSection id="home" onNavigate={scrollTo} onContactOpen={openContact} />
         <ProblemSection id="problem" />
         <SolutionSection id="solution" onNavigate={scrollTo} onServicesOpen={() => { setContactOpen(false); setServicesOpen(true); }} />
-        <ImpactSection id="impact" />
-        <ProcessSection id="process" onContactOpen={() => { setServicesOpen(false); setContactOpen(true); }} />
+        <ImpactSection id="impact" onContactOpen={openContact} />
+        <IndustriesSection id="industries" onContactOpen={openContact} />
+        <ProcessSection id="process" onContactOpen={openContact} />
+        <FAQSection id="faq" />
         <Footer />
       </div>
     </div>
