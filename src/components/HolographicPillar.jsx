@@ -28,20 +28,6 @@ const HolographicPillar = ({ number, img, title, imgFile, imgHint, onExplore }) 
       onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onClick={onExplore}>
       <div className="holo-shimmer" />
       <div className="holo-glow" />
-
-      {/* IMAGE PLACEHOLDER — replace with your image once ready */}
-      <div className="pillar-img-slot">
-        {imgFile
-          ? <img src={imgFile} alt={title} className="pillar-img-actual" />
-          : <div className="img-placeholder img-placeholder--card">
-              <span className="img-placeholder-icon">🖼</span>
-              <span className="img-placeholder-text">IMAGE SLOT</span>
-              <span className="img-placeholder-hint">{imgHint}</span>
-              <span className="img-placeholder-file"><code>{`public/${imgFile || 'img_solution_0'+number+'.jpg'}`}</code></span>
-            </div>
-        }
-      </div>
-
       <div className="holo-pillar-inner">
         <div className="holo-pillar-top">
           <img src={img} alt="" className="holo-cube-img" />

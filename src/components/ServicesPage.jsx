@@ -52,14 +52,6 @@ const HoloSvcCard = ({ s, onAudit }) => {
       onMouseMove={onMouseMove} onMouseLeave={onMouseLeave}>
       <div className="holo-shimmer" />
       <div className="holo-glow" />
-      {/* IMAGE PLACEHOLDER — replace src with your image per service */}
-      <div className="svc-img-placeholder">
-        <img src={s.placeholderImg || ''} alt={s.title}
-          className="svc-card-img"
-          onError={(e) => { e.target.style.display='none'; e.target.parentNode.classList.add('svc-img-empty'); }}
-        />
-        <span className="svc-img-label">{s.imgLabel}</span>
-      </div>
       <div className="svc-card-inner">
         <div className="svc-card-top">
           <img src={s.img} alt="" className="svc-cube-img" />

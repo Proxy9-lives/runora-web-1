@@ -50,15 +50,6 @@ const ProblemSection = ({ id }) => (
     <div className="wwa-content">
       <div className="section-label">THE CORE PROBLEM</div>
       <h2 className="wwa-title">Sound familiar?</h2>
-
-      {/* IMAGE PLACEHOLDER — wide banner above cards */}
-      <div className="img-placeholder img-placeholder--wide">
-        <span className="img-placeholder-icon">🖼</span>
-        <span className="img-placeholder-text">SECTION IMAGE</span>
-        <span className="img-placeholder-hint">Suggested: stressed business owner at desk / missed calls on phone / busy Dubai office — dark, cinematic</span>
-        <span className="img-placeholder-file">→ add file: <code>public/img_problem.jpg</code> and replace this block with <code>&lt;img src="/img_problem.jpg" className="section-banner-img" /&gt;</code></span>
-      </div>
-
       <div className="problem-grid">
         <ProblemCard title="Calls & DMs going unanswered" consequence="Leads going to your competitor" />
         <ProblemCard title="Staff doing copy-paste admin" consequence="Wasted payroll, human error" />
