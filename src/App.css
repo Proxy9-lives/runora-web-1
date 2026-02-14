@@ -1041,15 +1041,14 @@
   font-size: clamp(3rem, 8vw, 6.5rem);
   font-weight: 800;
   letter-spacing: 0.15em;
-  color: #ffffff;
-  -webkit-text-fill-color: #ffffff;
-  background: none;
-  -webkit-background-clip: unset;
-  background-clip: unset;
-  text-shadow:
-    0 0 40px rgba(192,132,252,0.7),
-    0 0 80px rgba(255,107,157,0.4),
-    0 4px 24px rgba(0,0,0,0.95);
+  background: linear-gradient(135deg, #ff6b9d 0%, #c084fc 50%, #6ee7b7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter:
+    drop-shadow(0 0 30px rgba(192,132,252,0.8))
+    drop-shadow(0 0 60px rgba(255,107,157,0.5))
+    drop-shadow(0 6px 20px rgba(0,0,0,1));
   margin-top: 0.3rem;
 }
 .hero-subtitle {
