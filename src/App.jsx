@@ -7,7 +7,6 @@ import SolutionSection from './components/HowWeDoItSection';
 import ImpactSection from './components/ImpactSection';
 import IndustriesSection from './components/IndustriesSection';
 import ProcessSection from './components/OurWorkSection';
-
 import FAQSection from './components/FAQSection';
 import ServicesPage from './components/ServicesPage';
 import ContactPage from './components/ContactPage';
@@ -27,7 +26,7 @@ function App() {
   const startScroll = useRef(0);
 
   const onMouseDown = (e) => {
-    if (e.target.closest('button, a, input')) return;
+    if (e.target.closest('button, a, input, textarea')) return;
     dragging.current = true;
     startY.current = e.clientY;
     startScroll.current = containerRef.current.scrollTop;
@@ -57,9 +56,26 @@ function App() {
     return () => el.removeEventListener('scroll', onScroll);
   }, []);
 
+  // URL management
+  useEffect(() => {
+    if (servicesOpen) window.history.pushState({}, '', '/services');
+    else if (contactOpen) window.history.pushState({}, '', '/contact');
+    else window.history.pushState({}, '', '/');
+  }, [servicesOpen, contactOpen]);
+
+  // Handle browser back button
+  useEffect(() => {
+    const onPopState = () => {
+      setServicesOpen(false);
+      setContactOpen(false);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, []);
+
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'Escape') { setServicesOpen(false); setContactOpen(false); }
+      if (e.key === 'Escape') { closeServices(); closeContact(); }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -71,7 +87,10 @@ function App() {
       containerRef.current.scrollTo({ top: el.offsetTop, behavior: 'smooth' });
   };
 
-  const openContact = () => { setServicesOpen(false); setContactOpen(true); };
+  const openServices = () => { setContactOpen(false); setServicesOpen(true); };
+  const openContact  = () => { setServicesOpen(false); setContactOpen(true); };
+  const closeServices = () => { setServicesOpen(false); window.history.pushState({}, '', '/'); };
+  const closeContact  = () => { setContactOpen(false);  window.history.pushState({}, '', '/'); };
 
   return (
     <div className="App">
@@ -79,25 +98,25 @@ function App() {
       <Header
         currentSection={current}
         onNavigate={scrollTo}
-        onServicesOpen={() => { setContactOpen(false); setServicesOpen(true); }}
+        onServicesOpen={openServices}
         onContactOpen={openContact}
       />
       <ScrollIndicator />
 
       {servicesOpen && (
         <ServicesPage
-          onClose={() => setServicesOpen(false)}
-          onAudit={() => { setServicesOpen(false); setContactOpen(true); }}
-          onNavigate={(id) => { setServicesOpen(false); setTimeout(() => scrollTo(id), 50); }}
+          onClose={closeServices}
+          onAudit={() => { closeServices(); setTimeout(() => openContact(), 50); }}
+          onNavigate={(id) => { closeServices(); setTimeout(() => scrollTo(id), 50); }}
           onContactOpen={openContact}
         />
       )}
 
       {contactOpen && (
         <ContactPage
-          onClose={() => setContactOpen(false)}
-          onServicesOpen={() => { setContactOpen(false); setServicesOpen(true); }}
-          onNavigate={(id) => { setContactOpen(false); setTimeout(() => scrollTo(id), 50); }}
+          onClose={closeContact}
+          onServicesOpen={() => { closeContact(); setTimeout(() => openServices(), 50); }}
+          onNavigate={(id) => { closeContact(); setTimeout(() => scrollTo(id), 50); }}
         />
       )}
 
@@ -111,7 +130,7 @@ function App() {
       >
         <HomeSection id="home" onNavigate={scrollTo} onContactOpen={openContact} />
         <ProblemSection id="problem" />
-        <SolutionSection id="solution" onNavigate={scrollTo} onServicesOpen={() => { setContactOpen(false); setServicesOpen(true); }} />
+        <SolutionSection id="solution" onNavigate={scrollTo} onServicesOpen={openServices} />
         <ImpactSection id="impact" onContactOpen={openContact} />
         <IndustriesSection id="industries" onContactOpen={openContact} />
         <ProcessSection id="process" onContactOpen={openContact} />

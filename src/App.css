@@ -1300,3 +1300,36 @@
   .form-row { grid-template-columns: 1fr; }
   .contact-form-right { padding: 1.5rem; }
 }
+
+/* ===== RUNORA HERO TITLE — thicker with shadow ===== */
+.hero-title {
+  font-weight: 700 !important;
+  text-shadow: 0 0 80px rgba(192,132,252,0.6), 0 0 30px rgba(255,107,157,0.4), 0 4px 24px rgba(0,0,0,1) !important;
+  -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+}
+
+/* ===== INDUSTRIES BANNER IMAGE ===== */
+.industries-banner {
+  width: 100%; height: 320px; object-fit: cover;
+  border-radius: 16px; margin-bottom: 2rem;
+  display: block;
+}
+
+/* ===== SERVICES PAGE SUBTITLE CENTERED ===== */
+.services-page-header { text-align: center; margin-bottom: 2.5rem; }
+.services-hero-sub { text-align: center; margin: 0 auto; }
+
+/* ===== CONTACT PAGE — logo circle on left of title ===== */
+.contact-title-row {
+  display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;
+}
+.contact-logo-circle {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(192,132,252,0.15);
+  border: 1px solid rgba(192,132,252,0.4);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; overflow: hidden;
+}
+.contact-logo-circle img {
+  width: 38px; height: 38px; object-fit: contain;
+}
