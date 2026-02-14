@@ -56,7 +56,7 @@ const ProblemSection = ({ id }) => (
         <ProblemCard title="No follow-up system" consequence="Bookings & deals slipping away" />
       </div>
       <p className="problem-subtitle">
-        Whether you run a medspa in JLT, a car dealership in Al Quoz, or a dental clinic in Downtown — the bottleneck is always the same. Manual work that should be automated.
+        Whether you run a medspa in JLT, a car dealership in Al Quoz, or a dental clinic in Downtown, the bottleneck is always the same. Manual work that should be automated.
       </p>
     </div>
   </div>

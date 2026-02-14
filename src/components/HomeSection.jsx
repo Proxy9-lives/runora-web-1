@@ -20,7 +20,7 @@ const HomeSection = ({ id, onNavigate, onContactOpen }) => {
           <h1 className="hero-title">RUNORA</h1>
           <h2 className="hero-subtitle">Your business, running itself.</h2>
           <p className="hero-body">
-            We deploy AI agents that handle your leads, bookings, follow-ups and admin — 24/7, without hiring.
+            We deploy AI agents that handle your leads, bookings, follow-ups and admin, 24/7, without hiring.
           </p>
           <div className="home-cta-row">
             <button className="cta-button" onClick={onContactOpen}>GET FREE AUDIT</button>
@@ -36,13 +36,13 @@ const HomeSection = ({ id, onNavigate, onContactOpen }) => {
       {/* ── MASCOT SPLIT: night image + copy ── */}
       <div className="mascot-split-section">
         <div className="mascot-split-image">
-          <img src="/mascot_night.png" alt="Runora AI Agent — Dubai" />
+          <img src="/mascot_night.png" alt="Runora AI Agent, Dubai" />
         </div>
         <div className="mascot-split-content">
-          <div className="section-label">MEET YOUR AI AGENT</div>
+          <div className="section-label">MEET YOUR AUTOMATION AGENT</div>
           <h2 className="mascot-split-title">Already working in Dubai. Already taking over.</h2>
           <p className="mascot-split-body">
-            While your team sleeps, Runora's AI agents are responding to enquiries, qualifying leads, booking appointments and logging everything — across WhatsApp, Instagram, email and your CRM.
+            While your team sleeps, Runora's AI agents are responding to enquiries, qualifying leads, booking appointments and logging everything, across WhatsApp, Instagram, email and your CRM.
           </p>
           <p className="mascot-split-body">
             This isn't a chatbot. It's a complete operational system designed specifically for Dubai's medspas, clinics, gyms, dealerships and brokerages.
@@ -50,7 +50,7 @@ const HomeSection = ({ id, onNavigate, onContactOpen }) => {
           <div className="mascot-split-stats">
             <div className="mascot-stat"><span className="mascot-stat-num">24/7</span><span className="mascot-stat-label">Always on</span></div>
             <div className="mascot-stat"><span className="mascot-stat-num">&lt;2min</span><span className="mascot-stat-label">Response time</span></div>
-            <div className="mascot-stat"><span className="mascot-stat-num">4 weeks</span><span className="mascot-stat-label">To go live</span></div>
+            <div className="mascot-stat"><span className="mascot-stat-num">100%</span><span className="mascot-stat-label">Yours to own</span></div>
           </div>
           <button className="cta-button" onClick={onContactOpen}>BOOK FREE AUDIT</button>
         </div>

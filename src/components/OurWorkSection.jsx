@@ -72,7 +72,7 @@ const ProcessSection = ({ id, onContactOpen }) => (
           <div className="trust-item"><span className="trust-icon">📝</span><p>Full audit logs available</p></div>
         </div>
       </div>
-      <p className="trust-tagline-outside">AI that works with accountability — not blindly.</p>
+      <p className="trust-tagline-outside">AI that works with accountability, not blindly.</p>
     </div>
   </div>
 );

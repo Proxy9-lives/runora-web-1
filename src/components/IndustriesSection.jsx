@@ -51,7 +51,7 @@ const IndustriesSection = ({ id, onContactOpen }) => (
       <div className="section-label">WHO WE WORK WITH</div>
       <h2 className="industries-title">BUILT FOR YOUR INDUSTRY</h2>
       <p className="industries-sub">Every business type has different bottlenecks. We've mapped them all.</p>
-      <img src="/img_industries.jpg" alt="Dubai — AI automation across industries" className="industries-banner" />
+      <img src="/img_industries.jpg" alt="Dubai, AI automation across industries" className="industries-banner" />
       <div className="industries-grid">
         {industries.map(ind => (
           <IndustryCard key={ind.name} {...ind} onContactOpen={onContactOpen} />

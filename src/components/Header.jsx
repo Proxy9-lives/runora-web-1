@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 
 const links = [
-  { id: 'solution',   label: 'Services',          isOverlay: true },
+  { id: 'solution',   label: 'What We Automate' },
   { id: 'industries', label: 'Industries' },
   { id: 'process',    label: 'Process' },
+  { id: 'services',   label: 'Services',  isOverlay: true },
   { id: 'faq',        label: 'FAQ' },
 ];
 

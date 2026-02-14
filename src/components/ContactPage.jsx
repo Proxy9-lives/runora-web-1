@@ -53,7 +53,7 @@ const ContactPage = ({ onClose, onServicesOpen, onNavigate }) => {
 
         <div className="contact-form-layout">
 
-          {/* Left — headline */}
+          {/* Left, headline */}
           <div className="contact-form-left">
             <div className="section-label">GET STARTED</div>
             <div className="contact-title-row">
@@ -62,7 +62,7 @@ const ContactPage = ({ onClose, onServicesOpen, onNavigate }) => {
               </div>
               <h1 className="contact-form-title">Let's talk automation.</h1>
             </div>
-            <p className="contact-form-sub">Book a free audit call. We'll map your highest-ROI automation opportunities and give you a clear plan — no obligation.</p>
+            <p className="contact-form-sub">Book a free audit call. We'll map your highest-ROI automation opportunities and give you a clear plan, no obligation.</p>
             <div className="contact-form-trust">
               <div className="contact-trust-item"><span>⚡</span><p>Response within 2 hours</p></div>
               <div className="contact-trust-item"><span>🔐</span><p>NDA available on request</p></div>
@@ -70,7 +70,7 @@ const ContactPage = ({ onClose, onServicesOpen, onNavigate }) => {
             </div>
           </div>
 
-          {/* Right — form */}
+          {/* Right, form */}
           <div className="contact-form-right">
             {submitted ? (
               <div className="contact-success">
