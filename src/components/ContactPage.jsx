@@ -56,7 +56,12 @@ const ContactPage = ({ onClose, onServicesOpen, onNavigate }) => {
           {/* Left — headline */}
           <div className="contact-form-left">
             <div className="section-label">GET STARTED</div>
-            <h1 className="contact-form-title">Let's talk automation.</h1>
+            <div className="contact-title-row">
+              <div className="contact-logo-circle">
+                <img src="/runora_logo_transparent.png" alt="Runora" />
+              </div>
+              <h1 className="contact-form-title">Let's talk automation.</h1>
+            </div>
             <p className="contact-form-sub">Book a free audit call. We'll map your highest-ROI automation opportunities and give you a clear plan — no obligation.</p>
             <div className="contact-form-trust">
               <div className="contact-trust-item"><span>⚡</span><p>Response within 2 hours</p></div>

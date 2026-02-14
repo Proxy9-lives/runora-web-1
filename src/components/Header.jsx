@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const links = [
-  { id: 'solution',   label: 'What We Automate' },
+  { id: 'solution',   label: 'Services',          isOverlay: true },
   { id: 'industries', label: 'Industries' },
   { id: 'process',    label: 'Process' },
   { id: 'faq',        label: 'FAQ' },
@@ -9,7 +9,11 @@ const links = [
 
 const Header = ({ onNavigate, currentSection, onServicesOpen, onContactOpen }) => {
   const [open, setOpen] = useState(false);
-  const go = (id) => { onNavigate && onNavigate(id); setOpen(false); };
+  const go = (id, isOverlay) => {
+    if (isOverlay) { onServicesOpen && onServicesOpen(); }
+    else { onNavigate && onNavigate(id); }
+    setOpen(false);
+  };
 
   return (
     <>
@@ -20,9 +24,9 @@ const Header = ({ onNavigate, currentSection, onServicesOpen, onContactOpen }) =
         </a>
         <nav className="desktop-nav">
           {links.map(l => (
-            <a key={l.id} href={`#${l.id}`}
+            <a key={l.id} href={l.isOverlay ? '/services' : `#${l.id}`}
               className={currentSection === l.id ? 'active' : ''}
-              onClick={(e) => { e.preventDefault(); go(l.id); }}>
+              onClick={(e) => { e.preventDefault(); go(l.id, l.isOverlay); }}>
               {l.label}
             </a>
           ))}
@@ -36,13 +40,13 @@ const Header = ({ onNavigate, currentSection, onServicesOpen, onContactOpen }) =
       <nav className={`nav-menu ${open ? 'open' : ''}`}>
         <a href="#home" onClick={(e) => { e.preventDefault(); go('home'); }}>Home</a>
         {links.map(l => (
-          <a key={l.id} href={`#${l.id}`}
+          <a key={l.id} href={l.isOverlay ? '/services' : `#${l.id}`}
             className={currentSection === l.id ? 'active' : ''}
-            onClick={(e) => { e.preventDefault(); go(l.id); }}>
+            onClick={(e) => { e.preventDefault(); go(l.id, l.isOverlay); }}>
             {l.label}
           </a>
         ))}
-        <a href="#contact" onClick={(e) => { e.preventDefault(); onContactOpen && onContactOpen(); setOpen(false); }}
+        <a href="/contact" onClick={(e) => { e.preventDefault(); onContactOpen && onContactOpen(); setOpen(false); }}
           style={{ color: 'var(--mint)', fontWeight: 600 }}>
           Get Free Audit →
         </a>
