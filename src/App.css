@@ -1038,10 +1038,19 @@
   text-align:center; max-width:800px; padding:0 5%; gap:0.8rem;
 }
 .hero-title {
-  font-size:clamp(3rem,8vw,6rem); font-weight:200; letter-spacing:0.15em;
-  background:var(--grad); -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent; background-clip:text;
-  margin-top:0.3rem;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  -webkit-text-fill-color: #ffffff;
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  text-shadow:
+    0 0 40px rgba(192,132,252,0.7),
+    0 0 80px rgba(255,107,157,0.4),
+    0 4px 24px rgba(0,0,0,0.95);
+  margin-top: 0.3rem;
 }
 .hero-subtitle {
   font-size:clamp(1.3rem,2.8vw,2rem); font-weight:300;
@@ -1179,10 +1188,7 @@
   .contact-mascot-col { display:none; }
 }
 
-/* ===== HERO TEXT VISIBILITY FIX ===== */
-.hero-title {
-  text-shadow: 0 0 60px rgba(192,132,252,0.4), 0 2px 20px rgba(0,0,0,0.8);
-}
+
 .hero-subtitle {
   text-shadow: 0 2px 12px rgba(0,0,0,0.9);
 }
@@ -1301,12 +1307,7 @@
   .contact-form-right { padding: 1.5rem; }
 }
 
-/* ===== RUNORA HERO TITLE — thicker with shadow ===== */
-.hero-title {
-  font-weight: 700 !important;
-  text-shadow: 0 0 80px rgba(192,132,252,0.6), 0 0 30px rgba(255,107,157,0.4), 0 4px 24px rgba(0,0,0,1) !important;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.15);
-}
+
 
 /* ===== INDUSTRIES BANNER IMAGE ===== */
 .industries-banner {
@@ -1324,12 +1325,102 @@
   display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;
 }
 .contact-logo-circle {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: rgba(192,132,252,0.15);
-  border: 1px solid rgba(192,132,252,0.4);
+  width: 96px; height: 96px; border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid rgba(192,132,252,0.4);
   display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; overflow: hidden;
+  flex-shrink: 0; overflow: visible; padding: 4px;
 }
 .contact-logo-circle img {
-  width: 38px; height: 38px; object-fit: contain;
+  width: 88px; height: 88px; object-fit: contain;
+  background: transparent; mix-blend-mode: screen;
+}
+
+
+
+
+
+/* ===== MOBILE OPTIMISATION ===== */
+@media (max-width: 768px) {
+  /* Hero */
+  .hero-section { height: 100svh; }
+  .hero-content { padding: 0 6%; gap: 0.6rem; }
+  .hero-title { font-size: clamp(2.4rem,10vw,3.5rem) !important; }
+  .hero-subtitle { font-size: clamp(1.1rem,4vw,1.4rem); }
+  .hero-body { font-size: 0.88rem; }
+  .home-cta-row { flex-direction: column; gap: 0.7rem; width: 100%; }
+  .cta-button, .cta-button-ghost { width: 100%; text-align: center; }
+
+  /* Mascot split */
+  .mascot-split-section { grid-template-columns: 1fr; min-height: auto; }
+  .mascot-split-image { height: 60vw; max-height: 320px; }
+  .mascot-split-content { padding: 2rem 5%; }
+  .mascot-split-stats { gap: 1.2rem; flex-wrap: wrap; }
+
+  /* Header */
+  .desktop-nav { display: none; }
+  .header-cta-btn { display: none; }
+  .hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
+  .hamburger span { width: 22px; height: 2px; background: var(--white); border-radius: 2px; display: block; }
+  .nav-menu {
+    display: flex; flex-direction: column;
+    position: fixed; top: 56px; left: 0; width: 100%; z-index: 190;
+    background: rgba(2,6,23,0.97); backdrop-filter: blur(20px);
+    padding: 1.5rem 6%; gap: 0; max-height: 0; overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  .nav-menu.open { max-height: 400px; }
+  .nav-menu a { padding: 0.9rem 0; font-family: var(--font-body); font-size: 1rem; color: rgba(255,255,255,0.8); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+  /* Sections */
+  .section { padding: 3.5rem 5% 2rem; }
+  .wwa-title, .hwdi-title, .impact-title, .work-title, .industries-title, .faq-title { font-size: clamp(1.4rem,6vw,2rem); }
+  .problem-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+  .holo-pillars-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+  .stat-row { grid-template-columns: 1fr; gap: 0.6rem; }
+  .payback-row { max-width: 100%; }
+  .process-steps { grid-template-columns: 1fr; gap: 0.8rem; }
+  .industries-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+  .industries-banner { height: 200px; }
+  .faq-content { max-width: 100%; }
+
+  /* Services page */
+  .services-page-body { padding: 5rem 5% 2rem; }
+  .services-page-grid { grid-template-columns: 1fr; gap: 1rem; }
+
+  /* Contact form */
+  .contact-page-body { padding: 5rem 5% 2rem; }
+  .contact-form-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .contact-form-left { position: static; }
+  .contact-form-right { padding: 1.4rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .contact-title-row { flex-direction: row; align-items: center; }
+
+  /* Impact mascot */
+  .impact-mascot-strip { grid-template-columns: 1fr; }
+  .impact-mascot-img { width: 100%; max-width: 260px; margin: 0 auto; }
+
+  /* Footer */
+  .footer-content { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  /* Scroll indicator hidden on mobile */
+  .scroll-indicator { display: none; }
+}
+
+/* ===== PERFORMANCE OPTIMISATION ===== */
+/* Reduce expensive effects on lower-end devices */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .holo-pillar, .problem-item, .process-step, .svc-card, .industry-card, .pricing-card, .faq-item {
+    will-change: auto;
+    backdrop-filter: blur(4px) !important;
+  }
+  .hero-video { transform: translateZ(0); }
+}
+/* GPU layer promotion for key animated elements */
+.hero-video, .mascot-split-image img, .cube { will-change: transform; }
+.holo-shimmer { will-change: opacity; }
+/* Disable fish on mobile entirely */
+@media (max-width: 768px) {
+  .fish { display: none; }
+  .underwater-scene { display: none; }
 }
